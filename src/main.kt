@@ -8,5 +8,6 @@ fun main() {
     val array = arrayOf(10,9,8,7,6,5,4,3,2,1)
     insertionSort.apply {
         (array.insertionSort()) extArrayPrint SortingAlgorithmsType.INSERTIONSORT.toString()
+        (array.mergeSort(0,array.size - 1)) extArrayPrint SortingAlgorithmsType.MERGESORT.toString()
     }
 }

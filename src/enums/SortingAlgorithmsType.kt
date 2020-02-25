@@ -5,5 +5,10 @@ enum class SortingAlgorithmsType {
         override fun toString(): String {
             return "Insertion Sort"
         }
+    },
+    MERGESORT{
+        override fun toString(): String {
+            return "Merge Sort"
+        }
     }
 }
