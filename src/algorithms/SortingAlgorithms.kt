@@ -13,7 +13,7 @@ class SortingAlgorithms {
         }
         return this
     }
-    fun Array<Int>.merge(p: Int, q: Int, r: Int) {
+    private fun Array<Int>.merge(p: Int, q: Int, r: Int) {
         val left = this.copyOfRange(p, q + 1)
         val right = this.copyOfRange(q + 1, r + 1)
         var i = 0
@@ -39,5 +39,35 @@ class SortingAlgorithms {
             }
         }
         return this
+    }
+
+
+
+    fun Array<Int>.quickSort(p: Int, r: Int): Array<Int>{
+        if (p<r){
+            var q: Int = this.partition(p, r)
+            this.quickSort(p, q - 1)
+            this.quickSort(q + 1,r)
+        }
+        return this
+    }
+
+    private fun Array<Int>.partition(p: Int, r: Int): Int {
+        var x = this[r]
+        var i = p - 1
+        for (j in p until r) {
+            if (this[j] <= x) {
+                i++
+                this.swapArray(i, j)
+            }
+        }
+        this.swapArray(i + 1, r)
+        return i + 1
+    }
+
+    private fun Array<Int>.swapArray( b: Int, c: Int) {
+        val temp = this[b]
+        this[b] = this[c]
+        this[c] = temp
     }
 }

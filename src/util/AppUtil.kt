@@ -2,9 +2,10 @@ package util
 
 infix fun Array<Int>.extArrayPrint(algorithmName: String) {
     println("   $algorithmName   ")
-    println("--------------------")
+    print("--------------------\n[ ")
     for (i in this.indices) {
-        println("${i+1}.-> ${this[i]}")
+        print("${this[i]} ")
     }
+    print("]\n")
 }
 

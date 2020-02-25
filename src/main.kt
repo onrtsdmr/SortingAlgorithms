@@ -9,5 +9,6 @@ fun main() {
     insertionSort.apply {
         (array.insertionSort()) extArrayPrint SortingAlgorithmsType.INSERTIONSORT.toString()
         (array.mergeSort(0,array.size - 1)) extArrayPrint SortingAlgorithmsType.MERGESORT.toString()
+        (array.quickSort(0,array.size-1)) extArrayPrint SortingAlgorithmsType.QUICKSORT.toString()
     }
 }

@@ -10,5 +10,10 @@ enum class SortingAlgorithmsType {
         override fun toString(): String {
             return "Merge Sort"
         }
+    },
+    QUICKSORT{
+        override fun toString(): String {
+            return "Quick Sort"
+        }
     }
 }
