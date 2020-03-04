@@ -1,7 +1,7 @@
 package algorithms
 
 class SortingAlgorithms {
-    fun Array<Int>.insertionSort(): Array<Int> {
+    fun Array<Int>.extInsertionSort(): Array<Int> {
         for (i in 1 until this.size) {
             val key = this[i]
             var j = i - 1
@@ -13,6 +13,7 @@ class SortingAlgorithms {
         }
         return this
     }
+
     private fun Array<Int>.merge(p: Int, q: Int, r: Int) {
         val left = this.copyOfRange(p, q + 1)
         val right = this.copyOfRange(q + 1, r + 1)
@@ -29,25 +30,27 @@ class SortingAlgorithms {
             }
         }
     }
-    fun Array<Int>.mergeSort(p: Int, r: Int) : Array<Int>{
+
+    fun Array<Int>.extMergeSort(p: Int, r: Int): Array<Int> {
         if (p < r) {
             val q = (p + r) / 2
             this.apply {
-                mergeSort(p,q)
-                mergeSort(q+1,r)
-                merge(p,q,r)
+                extMergeSort(p, q)
+                extMergeSort(q + 1, r)
+                merge(p, q, r)
             }
         }
         return this
     }
 
 
-
-    fun Array<Int>.quickSort(p: Int, r: Int): Array<Int>{
-        if (p<r){
+    fun Array<Int>.extQuickSort(p: Int, r: Int): Array<Int> {
+        if (p < r) {
             var q: Int = this.partition(p, r)
-            this.quickSort(p, q - 1)
-            this.quickSort(q + 1,r)
+            this.apply {
+                extQuickSort(q + 1, r)
+                extQuickSort(p, q - 1)
+            }
         }
         return this
     }
@@ -65,7 +68,7 @@ class SortingAlgorithms {
         return i + 1
     }
 
-    private fun Array<Int>.swapArray( b: Int, c: Int) {
+    private fun Array<Int>.swapArray(b: Int, c: Int) {
         val temp = this[b]
         this[b] = this[c]
         this[c] = temp
